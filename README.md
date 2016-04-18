@@ -26,6 +26,7 @@ the simple Arduino firmware changes the LED output so your folks can leave you b
 on your pomodoros.
 
 Here is the Arduino layout:
+
 ![arduino_sketch](https://github.com/viccuad/gomoduino/raw/master/assets/web/Sketch_schem.png)
 
 Here is the Python script usage:
