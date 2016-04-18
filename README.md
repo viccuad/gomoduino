@@ -8,6 +8,8 @@ Gomoduino: notify your colleagues when you are on a pomodoro
 Gomoduino provides a traffic light-like sign showcasing when you are on available
 and on a break, and when you are on a [pomodoro](http://pomodorotechnique.com).
 
+Potato photo:
+![gomoduino](https://github.com/viccuad/gomoduino/raw/master/assets/web/gomoduino.jpg)
 
 # How it works
 It works in conjunction with [Gnome Pomodoro](http://gnomepomodoro.org),
