@@ -1,0 +1,14 @@
+
+
+
+
+
+.build/uno/src/gomoduino.cpp : src/gomoduino.ino
+	@mkdir -p .build/uno/src
+	@echo [93msrc/gomoduino.ino[0m
+	@/home/vic/.local/bin/ino preproc  -o $@ $^
+
+
+all : .build/uno/src/gomoduino.cpp
+	@true
+

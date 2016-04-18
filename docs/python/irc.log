@@ -1,0 +1,33 @@
+160628    smcv viccuad: no, GDBus is a different thing
+160644    smcv from gi.repository import Gio; Gio.DBusConnection, Gio.DBusProxy, etc.
+160724    smcv it is the D-Bus implementation that is most likely to not crash horribly if you call into the same connection from multiple threads
+160810    smcv if you are using a single thread, dbus-python is OK (although I would still choose GDBus myself)
+160837    smcv (context: I am the closest there is to a dbus-python maintainer, and it is not the one I would choose to use myself)
+160907    smcv what do you mean by "blocks the rest of my script"?
+161652 viccuad smcv: as a learning exercise I'm doing a python script that listens to d-bus signals from a GUI app, gnome-pomodoro, and sends outputs through a serial port to an
+               atmega microcontroller. I need to make a thread for either loop.run() or the serial port connection, basically. Since this is a python learning exercise too, I was
+               following the dbus-python tutorial
+161806    smcv viccuad: this is not about dbus-python but about main loops in general, then
+161815 viccuad so I don't really need the d-bus connections to be thread safe (although it would be good to get it right from the beginning, I'm learning how to interact with
+               dbus afterall)
+161839    smcv the point of a main loop (or an event dispatcher, or sometimes a reactor - same thing) is that your whole program has the structure
+161849    smcv while (wait for next event)
+161851    smcv   {
+161854    smcv     deal with that event
+161855    smcv   }
+161951    smcv so in your example, one event would be "D-Bus signal comes in"
+162007    smcv another would be "serial port becomes writeable"
+162008 viccuad Yes, I understand the idea thankfully :). I guess I misunderstood that mainloop.glib.DBusGMainLoop was threaded itself (and a lack of python threads knowledge)
+162020    smcv here is what mainloop.glib.DBusGMainLoop does
+162039    smcv it arranges for the GLib main loop to monitor the DBusConnection
+162128    smcv so that while the GLib main loop is running, anything interesting that happens on the DBusConnection gets processed
+162128    smcv that is all
+162221    smcv if you do all your application-specific logic from callbacks that come from the GLib main loop, then you should be able to use just the main thread
+162237    smcv dbus-python does not magically create threads that run the GLib main loop for you, or anything like that
+162242 viccuad I thought mainloop.glib.DBusGMainLoop was threaded, running in the background
+162251 viccuad makes sense it doesn't
+162304    smcv in the common case of a GUI app that also interacts with D-Bus
+162323    smcv you'd want to deal with both "D-Bus stuff" and GUI events in the main thread
+162339    smcv in your case s/GUI/serial/ :-)
+162516 viccuad smcv: thanks for taking the time explaining this simple concepts :)
+162601 viccuad I guess for more complex cases in python then, use Gio
