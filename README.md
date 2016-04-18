@@ -14,7 +14,7 @@ It works in conjunction with [Gnome Pomodoro](http://gnomepomodoro.org),
 a Gnome-Shell application for managing your Pomodoros, with presence awareness,
 notifications, messaging status changes and more.
 
-![dbus_diagram](https://github.com/viccuad/gomoduino/raw/master/docs/arduino/bustle_pomodoro_log)
+![dbus_diagram](https://github.com/viccuad/gomoduino/raw/master/assets/web/bustle_pomodoro_log.png)
 
 Gomoduino is comprised of 2 parts, a Python script, and an Arduino firmware.
 Gnome Pomodoro showcases its state by [D-Bus](https://freedesktop.org/wiki/IntroductionToDBus/)
@@ -24,7 +24,7 @@ the simple Arduino firmware changes the LED output so your folks can leave you b
 on your pomodoros.
 
 Here is the Arduino layout:
-![arduino_sketch](https://github.com/viccuad/gomoduino/raw/master/docs/arduino/Sketch_schem.svg)
+![arduino_sketch](https://github.com/viccuad/gomoduino/raw/master/assets/web/Sketch_schem.png)
 
 Here is the Python script usage:
 
