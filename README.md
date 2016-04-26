@@ -53,26 +53,34 @@ See `docs/` for more info on all of it.
 
 Do it with Arduino IDE
 
-(1). `apt install arduino`
+(1). `$ apt install arduino`
 
 or go console style:
 
 (2). Install [inotool](http://inotool.org/)
 
-  a. For Debian based systems: ```sudo apt-get install python-pip```
-  b. Install inotool: ```pip install --user inotool``` (never ever use pip with sudo!)
-  c. Add ~/.local/bin to your PATH
+  a. For Debian based systems: ```$ sudo apt-get install python-pip```
+  b. Install inotool: ```$ pip install --user inotool``` (never ever use pip with sudo!)
+  c. Add `~/.local/bin` to your PATH
 
 ## For the Python script:
 
-`apt install python-dbus python-serial`
+`$ apt install python-dbus python-serial`
+
+Also, your user needs to be in the `tty` and `dialout`  groups:
+
+```terminal
+$ sudo usermod -a -G tty yourUserName
+$ sudo usermod -a -G dialout yourUserName
+```
+Remember to log off and on again for the changes to take effect.
 
 
 # Building
 ## Arduino part
 Do it with Arduino IDE or go console style:
 
-(2). `cd firmware`, `ino build`, `ino upload`.
+(2). `$ cd firmware; ino build; ino upload`.
 
 ## Python part
 You might need to change the serial device you are going to connect to.
