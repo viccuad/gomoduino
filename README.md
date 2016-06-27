@@ -9,7 +9,8 @@ Gomoduino provides a traffic light-like sign showcasing when you are on availabl
 and on a break, and when you are on a [pomodoro](http://pomodorotechnique.com).
 It was made on a couple of afternoons as an excuse to learn how D-Bus works.
 
-Potato photo:
+Potato photos:
+![gomoduino](https://github.com/viccuad/gomoduino/raw/master/assets/web/gomoduino_work.jpg)
 ![gomoduino](https://github.com/viccuad/gomoduino/raw/master/assets/web/gomoduino.jpg)
 
 # How it works
