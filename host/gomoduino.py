@@ -60,6 +60,9 @@ parser.add_argument("-d", "--debug", help="show debug messages",
                     action="store_true")
 parser.add_argument("-ns", "--noserial", help="don't try to connect serial port",
                     action="store_true")
+parser.add_argument("-a", "--arduino",
+                    help="use /dev/ttyACM0, Arduino Uno's default serial port",
+                    action="store_true")
 args = parser.parse_args()
 if args.debug:
     logging.basicConfig(level=logging.DEBUG)
@@ -68,8 +71,11 @@ if args.debug:
 logger = logging.getLogger(__name__)
 
 # Set up serial port
+if args.arduino:
+    SERIALPORT = "/dev/ttyACM0"
+else:
+    SERIALPORT = "/dev/ttyUSB0"
 if not args.noserial:
-    SERIALPORT = "/dev/ttyUSB0" # Change this to your serial port!
     try:
         ser = serial.Serial(SERIALPORT, 9600, timeout=0)
     except serial.SerialException:
