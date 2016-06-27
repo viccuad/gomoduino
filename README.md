@@ -66,13 +66,17 @@ or go console style:
 
 ## For the Python script:
 
+Debian:
 `$ apt install python-dbus python-serial`
+
+Opensuse:
+`$ zypper in dbus-1-python python-pyserial`
 
 Also, your user needs to be in the `tty` and `dialout`  groups:
 
 ```terminal
-$ sudo usermod -a -G tty yourUserName
-$ sudo usermod -a -G dialout yourUserName
+$ sudo usermod -a -G tty $USER
+$ sudo usermod -a -G dialout $USER
 ```
 Remember to log off and on again for the changes to take effect.
 
