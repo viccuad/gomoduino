@@ -69,7 +69,7 @@ or go console style:
 Debian:
 `$ apt install python-dbus python-serial`
 
-Opensuse:
+openSUSE:
 `$ zypper in dbus-1-python python-pyserial`
 
 Also, your user needs to be in the `tty` and `dialout`  groups:
